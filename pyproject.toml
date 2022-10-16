@@ -1,0 +1,30 @@
+[tool.black]
+line-length = 119
+target-version = ['py38']
+include = '\.py$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.flake8]
+max-line-length = 119
+ignore = "E203,E501,F403,F405,W503"
+exclude = "migrations"
+per-file-ignores = """
+    */__init__.py: F401
+"""
+
+[tool.isort]
+profile = "black"

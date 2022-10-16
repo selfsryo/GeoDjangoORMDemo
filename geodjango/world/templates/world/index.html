@@ -1,0 +1,74 @@
+{% load static %}
+
+<head>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+        crossorigin=""
+    />
+    <script
+        src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+        crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-tilelayer-geojson/1.0.4/TileLayer.GeoJSON.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="selector">
+            <label class="label-text" for="calc">Spatial Function</label>
+            <select id="calc" size="1">
+                <option value="intersects" selected>intersects</option>
+                <option value="crosses">crosses</option>
+                <option value="contains">contains</option>
+                <option value="within">within</option>
+                <option value="overlaps">overlaps</option>
+                <option value="disjoint">disjoint</option>
+                <option value="touches">touches</option>
+                <option value="left">left</option>
+                <option value="right">right</option>
+                <option value="overlaps_above">overlaps_above</option>
+                <option value="overlaps_below">overlaps_below</option>
+                <option value="distance_gt">distance_gt</option>
+                <option value="distance_gte">distance_gte</option>
+                <option value="distance_lt">distance_lt</option>
+                <option value="distance_lte">distance_lte</option>
+                <option value="dwithin">dwithin</option>
+                <option value="union">union</option>
+                <option value="asgeojson">asgeojson</option>
+                <option value="centroid">centroid</option>
+                <option value="boundingcircle">boundingcircle</option>
+                <option value="envelope">envelope</option>
+                <option value="area">area</option>
+                <option value="distance">distance</option>
+            </select>
+        </div>
+        <div class="selector">
+            <label class="label-text" for="airport">Airport</label>
+            <select id="airport" size="1">
+                <option value="新千歳空港" selected>新千歳空港</option>
+                <option value="稚内空港">稚内空港</option>
+                <option value="奥尻空港">奥尻空港</option>
+                <option value="利尻空港">利尻空港</option>
+                <option value="礼文空港">礼文空港</option>
+                <option value="函館空港">函館空港</option>
+                <option value="札幌飛行場">札幌飛行場</option>
+                <option value="旭川空港">旭川空港</option>
+                <option value="帯広空港">帯広空港</option>
+                <option value="紋別空港">紋別空港</option>
+                <option value="女満別空港">女満別空港</option>
+                <option value="釧路空港">釧路空港</option>
+                <option value="中標津空港">中標津空港</option>
+            </select>
+        </div>
+        <div>
+            <input type="button" value="Run" id="checkButton" onclick="buttonClick()" />
+        </div>
+        <a id="endpoint" href="" target="_blank">Jump Endpoint</a>
+    </header>
+    <div id="map"></div>
+    <link rel="stylesheet" href="{% static 'world/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'world/js/app.js' %}"></script>
+</body>

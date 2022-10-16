@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  django:
+    container_name: geodjango_orm
+    build: ./geodjango
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./geodjango:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./geodjango/.env
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres_orm
+    build: ./postgres
+    volumes:
+      - postgis_orm_data:/var/lib/postgresql/data
+      - ./postgres/sql:/docker-entrypoint-initdb.d
+    env_file: ./postgres/.env.db
+    ports:
+      - 5433:5432
+
+volumes:
+  postgis_orm_data:
